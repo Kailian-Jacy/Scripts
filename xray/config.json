@@ -1,0 +1,50 @@
+{
+	"log": {
+		"loglevel": "none"
+	},
+	"inbounds": [
+		{
+			"port": 443,
+			"protocol": "trojan",
+			"settings": {
+				"clients": [
+					{
+						"password": "e2e8af1c-9c60-420b-961b-b852200e35bc",
+						"email": "xza1809884911@163.mail",
+						"level": 0,
+						"flow": "xtls-rprx-direct"
+					}
+				],
+				"decryption": "none",
+				"fallbacks": [
+					{
+						"dest": 80
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "xtls",
+				"xtlsSettings": {
+					"alpn": [
+						"h2",
+						"http/1.1"
+					],
+					"minVersion": "1.2",
+					"certificates": [
+						{
+							"certificateFile": "/usr/local/nginx/certs/vps.kailianjacy.top.cer",
+							"keyFile": "/usr/local/nginx/certs/vps.kailianjacy.top.key",
+							"ocspStapling": 3600
+						}
+					]
+				}
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"protocol": "freedom"
+		}
+	]
+}
